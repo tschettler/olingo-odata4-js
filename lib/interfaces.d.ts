@@ -1,5 +1,3 @@
-import { Url } from "url";
-
 export namespace HttpOData {
     export interface BaseResponse {
         [x: string]: any;
@@ -41,14 +39,15 @@ export namespace HttpOData {
     export interface Request {
         headers?: { [name: string]: string; };
         requestUri: string;
-        method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+        method?: string; //"GET" | "POST" | "PUT" | "PATCH" | "DELETE";
         withCredentials?: boolean;
         timeoutMS?: number;
         body?: any;
+        data?: any;
     }
 
     export interface Response extends BaseResponse {
-        requestUri: Url;
+        requestUri: any; //Url;
         data?: any;
     }
 

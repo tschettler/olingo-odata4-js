@@ -1,6 +1,8 @@
 /** @module odata/net */
 
-export var defaultHttpClient: OData.HttpClient;
+import { HttpOData } from "../interfaces";
+
+export var defaultHttpClient: HttpOData.HttpClient;
 
 /* Checks whether the specified request can be satisfied with a JSONP request.
  * @param request - Request object to check.
