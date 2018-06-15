@@ -1,16 +1,6 @@
 /** @module odata/net */
 
-export var defaultHttpClient: {
-    callbackParameterName: string;
-    formatQueryString: string;
-    /** Performs a network request.
-     * @param {Object} request - Request description
-     * @param {Function} success - Success callback with the response object.
-     * @param {Function} error - Error callback with an error object.
-     * @returns {Object} Object with an 'abort' method for the operation.
-     */
-    request: (request: Object, success: (any) => void, error: (any) => void) => { abort: () => void };
-};
+export var defaultHttpClient: OData.HttpClient;
 
 /* Checks whether the specified request can be satisfied with a JSONP request.
  * @param request - Request object to check.

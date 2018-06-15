@@ -7,7 +7,7 @@
  * This function will first try to get the type name from the data item's value itself if it is an object with a __metadata property; otherwise
  * it will try to recover it from the metadata.  If both attempts fail, it will return null.
  */
-import { Edm } from "../interfaces";
+import { Edm, HttpOData } from "../interfaces";
 
 export var dataItemTypeName: (value: string, metadata?: any) => string;
 export var EDM_BINARY: string;
@@ -94,7 +94,7 @@ export function getCollectionType(typeName: string): string;
 * @param httpClient - HTTP client layer.
 * @param context - Context used for processing the request
 */
-export function invokeRequest(request: any, success: any, error: any, handler: any, httpClient: any, context: any): any;
+export function invokeRequest(request: any, success: any, error: any, handler: any, httpClient: HttpOData.HttpClient, context: any): any;
 /** Tests whether a value is a batch object in the library's internal representation.
  * @param value - Value to test.
  * @returns {Boolean} True is the value is a batch object; false otherwise.

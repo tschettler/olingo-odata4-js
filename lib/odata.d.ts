@@ -9,6 +9,7 @@ import * as batch from './odata/batch';
 
 import { Handler } from './odata/handler';
 import { assigned, defined, throwErrorCallback } from './utils';
+import { HttpOData } from './interfaces';
 
 export { utils, handler, metadata, net, json, batch };
 
@@ -27,7 +28,7 @@ export var defaultMetadata: any[];
  * @param {Object} [httpClient] - 
  * @param {Object} [metadata] - 
  */
-export function read(urlOrRequest: any, success?: (data: any, response: any) => void, error?: (error: Object) => void, handler?: Handler, httpClient?: Object, metadata?: Object): any;
+export function read(urlOrRequest: any, success?: (data: any, response: any) => void, error?: (error: Object) => void, handler?: Handler, httpClient?: HttpOData.HttpClient, metadata?: Object): any;
 /** Sends a request containing OData payload to a server.
  * @param {Object} request - Object that represents the request to be sent.
  * @param {Function} [success] - 
@@ -36,7 +37,7 @@ export function read(urlOrRequest: any, success?: (data: any, response: any) => 
  * @param {Object} [httpClient] - 
  * @param {Object} [metadata] - 
  */
-export function request(request: Object, success?: (data: any, response: any) => void, error?: (error: Object) => void, handler?: Handler, httpClient?: Object, metadata?: Object): any;
+export function request(request: Object, success?: (data: any, response: any) => void, error?: (error: Object) => void, handler?: Handler, httpClient?: HttpOData.HttpClient, metadata?: Object): any;
 /** Parses the csdl metadata to ODataJS metatdata format. This method can be used when the metadata is retrieved using something other than odatajs
  * @param {string} csdlMetadataDocument - A string that represents the entire csdl metadata.
  * @returns {Object} An object that has the representation of the metadata in odatajs format.

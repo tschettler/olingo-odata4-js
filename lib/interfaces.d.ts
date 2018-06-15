@@ -1,3 +1,54 @@
+import { Url } from "url";
+
+export namespace HttpOData {
+    export interface BaseResponse {
+        [x: string]: any;
+        statusCode: string;
+        statusText: string;
+        headers?: { [name: string]: string; };
+        body?: string;
+    }
+
+    export interface HttpClient {
+        formatQueryString?: string;
+        enableJsonPCallback?: boolean;
+        callbackParameterName?: string;
+        
+        /** Performs a network request.
+        * @param {Object} request - Request description
+        * @param {Function} success - Success callback with the response object.
+        * @param {Function} error - Error callback with an error object.
+        * @returns {Object} Object with an 'abort' method for the operation.
+        */
+        request(request: Request, success: (response: Response) => void, error: (error: Error) => void): RequestWithAbort;
+    }
+
+    export interface Error {
+        [x: string]: any;
+        message: string;
+        request?: Request;
+        response?: Response;
+    }
+
+    export interface Request {
+        headers?: { [name: string]: string; };
+        requestUri: string;
+        method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+        withCredentials?: boolean;
+        timeoutMS?: number;
+        body?: any;
+    }
+
+    export interface Response extends BaseResponse {
+        requestUri: Url;
+    }
+
+    // ClientRequest
+    export interface RequestWithAbort {
+        abort(): void;
+    }
+}
+
 export namespace Batch {
     export interface BatchRequest {
         __batchRequests: ChangeRequestSet[];
@@ -22,12 +73,7 @@ export namespace Batch {
         __changeResponses: (ChangeResponse | FailedResponse)[];
     }
 
-    export interface ChangeResponse {
-        [x: string]: any;
-        statusCode: string;
-        statusText: string;
-        headers: { [name: string]: string; };
-        body: string;
+    export interface ChangeResponse extends HttpOData.BaseResponse {
         data?: any;
     }
 
