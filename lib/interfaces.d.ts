@@ -21,7 +21,7 @@ export namespace HttpOData {
         formatQueryString?: string;
         enableJsonPCallback?: boolean;
         callbackParameterName?: string;
-        
+
         /** Performs a network request.
         * @param {Object} request - Request description
         * @param {Function} success - Success callback with the response object.
@@ -49,6 +49,7 @@ export namespace HttpOData {
 
     export interface Response extends BaseResponse {
         requestUri: Url;
+        data?: any;
     }
 
     // ClientRequest

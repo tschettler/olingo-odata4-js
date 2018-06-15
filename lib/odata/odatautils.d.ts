@@ -8,6 +8,7 @@
  * it will try to recover it from the metadata.  If both attempts fail, it will return null.
  */
 import { Edm, HttpOData } from "../interfaces";
+import { Handler } from "./handler";
 
 export var dataItemTypeName: (value: string, metadata?: any) => string;
 export var EDM_BINARY: string;
@@ -94,7 +95,7 @@ export function getCollectionType(typeName: string): string;
 * @param httpClient - HTTP client layer.
 * @param context - Context used for processing the request
 */
-export function invokeRequest(request: any, success: any, error: any, handler: any, httpClient: HttpOData.HttpClient, context: HttpOData.Context): any;
+export function invokeRequest(request: HttpOData.Request, success: (data: any, response?: HttpOData.Response) => void, error: (error: HttpOData.Error) => void, handler: Handler, httpClient: HttpOData.HttpClient, context: HttpOData.Context): HttpOData.RequestWithAbort;
 /** Tests whether a value is a batch object in the library's internal representation.
  * @param value - Value to test.
  * @returns {Boolean} True is the value is a batch object; false otherwise.
