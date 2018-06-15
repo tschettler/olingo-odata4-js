@@ -94,7 +94,7 @@ export function getCollectionType(typeName: string): string;
 * @param httpClient - HTTP client layer.
 * @param context - Context used for processing the request
 */
-export function invokeRequest(request: any, success: any, error: any, handler: any, httpClient: HttpOData.HttpClient, context: any): any;
+export function invokeRequest(request: any, success: any, error: any, handler: any, httpClient: HttpOData.HttpClient, context: HttpOData.Context): any;
 /** Tests whether a value is a batch object in the library's internal representation.
  * @param value - Value to test.
  * @returns {Boolean} True is the value is a batch object; false otherwise.

@@ -9,6 +9,14 @@ export namespace HttpOData {
         body?: string;
     }
 
+    export interface Context {
+        metadata: Edmx.Edmx;
+        recognizeDates: boolean;
+        callbackParameterName: string;
+        formatQueryString: string;
+        enableJsonpCallback: boolean;
+    }
+
     export interface HttpClient {
         formatQueryString?: string;
         enableJsonPCallback?: boolean;
