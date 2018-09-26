@@ -41,7 +41,7 @@ export function xmlAttributeNode(domNode: any, localName: string, nsURI: string)
  * @param element - Wrapped element to iterate over.
  * @param {Function} onAttributeCallback - Callback function to invoke with wrapped attribute nodes.
 */
-export function xmlAttributes(element: any, onAttributeCallback: (any) => void): void;
+export function xmlAttributes(element: any, onAttributeCallback: (any: any) => void): void;
 /** Returns the value of a DOM element's attribute.
  * @param domNode - DOM node for the owning element.
  * @param {String} localName - Local name of the attribute.

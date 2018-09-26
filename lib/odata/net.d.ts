@@ -8,7 +8,7 @@ export var defaultHttpClient: {
  * @param {Function} error - Error callback with an error object.
  * @returns {Object} Object with an 'abort' method for the operation.
  */
-    request: (request: Object, success: (any) => void, error: (any) => void) => { abort: () => void };
+    request: (request: Object, success: (any: any) => void, error: (any: any) => void) => { abort: () => void };
 };
 
 /* Checks whether the specified request can be satisfied with a JSONP request.

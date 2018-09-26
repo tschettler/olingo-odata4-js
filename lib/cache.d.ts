@@ -60,12 +60,12 @@ export interface DataCache {
    * @method DataCache#ToObservable
    * @returns A new Observable object that enumerates all the cache contents.
    */
-  ToObservable();
+  ToObservable(): any;
   /** Creates an Observable object that enumerates all the cache contents.
    * @method DataCache#toObservable
    * @returns A new Observable object that enumerates all the cache contents.
    */
-  toObservable();
+  toObservable(): any;
 }
 /** Estimates the size of an object in bytes.
  * Object trees are traversed recursively
