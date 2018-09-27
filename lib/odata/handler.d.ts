@@ -8,8 +8,8 @@ export interface ContentType {
 export interface Handler {
     accept: string;
     maxDataServiceVersion: string;
-    read(response: any, context: any);
-    write(request: any, context: any);
+    read(response: any, context: any): any;
+    write(request: any, context: any): any;
 }
 
 export var textHandler: Handler;

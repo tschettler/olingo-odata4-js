@@ -38,17 +38,17 @@ export class DjsDeferred {
      * @param {function} [fulfilledHandler] - Success callback ( may be null)
      * @param {function} [errorHandler] - Error callback ( may be null)
      */
-    then(fulfilledHandler?: () => void, errorHandler?: (...args) => void): DjsDeferred;
+    then(fulfilledHandler?: () => void, errorHandler?: (...args: any[]) => void): DjsDeferred;
     /** Invokes success callbacks for this deferred object.
  * All arguments are forwarded to success callbacks.
  * @method DjsDeferred#resolve
  */
-    resolve(...args): void;
+    resolve(...args: any[]): void;
     /** Invokes error callbacks for this deferred object.
     * All arguments are forwarded to error callbacks.
     * @method DjsDeferred#reject
     */
-    reject(...args): void;
+    reject(...args: any[]): void;
     /** Returns a version of this object that has only the read-only methods available.
      * @method DjsDeferred#promise
      * @returns An object with only the promise object.

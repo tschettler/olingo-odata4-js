@@ -55,7 +55,7 @@ export var GEOJSON_GEOMETRYCOLLECTION: string;
  * @param {Function} callback - Callback function to invoke once per schema.
  * @returns The first truthy value to be returned from the callback; null or the last falsy value otherwise.
  */
-export function forEachSchema(metadata: any, callback: (any) => any): any;
+export function forEachSchema(metadata: any, callback: (any: any) => any): any;
 
 export function formatDateTimeOffsetJSON(value: Date): string;
 /** Formats a DateTime or DateTimeOffset value a string.
@@ -323,7 +323,7 @@ export function parseTimeOfDay(propertyValue: any, nullOnError: boolean): {
     'ms': number;
 };
 
-export var parseInt;
+export var parseInt: any;
 /** Prepares a request object so that it can be sent through the network.
 * @param request - Object that represents the request to be sent.
 * @param handler - Handler for data serialization
@@ -342,4 +342,4 @@ export function removeNamespace(ns: string, fullName: string): string;
  * @returns {Object} The traversed object.
  * Unlike the JSON reviver, this won't delete null members.
 */
-export function traverse(item: any, callback: (string, any) => any): any;
+export function traverse(item: any, callback: (string: string, any: any) => any): any;
