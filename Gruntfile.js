@@ -117,7 +117,7 @@ module.exports = function(grunt) {
   //    E N D U S E R   T A S K S
 
   grunt.registerTask('default' , 'Show help', function() { grunt.log.write('Use grunt --help to get a list of tasks')});
- 
+
   grunt.registerTask('clean', 'Clean the temporary build directories', ['priv-clean:build']);
 
   //    BUILD the odatajs library
