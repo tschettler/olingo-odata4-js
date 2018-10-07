@@ -110,7 +110,7 @@ module.exports = function(grunt) {
 
   //    Avoid problems with apache-rat tool
   grunt.registerTask('clearEnv', intUse, function() {
-    process.env['JAVA_TOOL_OPTIONS'] = ''; 
+    delete process.env['JAVA_TOOL_OPTIONS']; 
   });
 
 
