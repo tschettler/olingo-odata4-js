@@ -4,6 +4,8 @@ import * as utils from './odata/odatautils';
 import * as handler from './odata/handler';
 import * as metadata from './odata/metadata';
 import * as net from './odata/net';
+import * as netServer from './odata/net';
+import * as netBrowser from './odata/net-browser';
 import * as json from './odata/json';
 import * as batch from './odata/batch';
 
@@ -11,7 +13,7 @@ import { Handler } from './odata/handler';
 import { assigned, defined, throwErrorCallback } from './utils';
 import { Edmx, HttpOData } from './interfaces';
 
-export { utils, handler, metadata, net, json, batch };
+export { utils, handler, metadata, net, netBrowser, netServer, json, batch };
 
 /** Default success handler for OData.
  * @param data - Data to process.
