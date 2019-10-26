@@ -21,7 +21,7 @@
     
 
 // version information 
-exports.version = { major: 4, minor: 0, build: 2 };
+exports.version = { major: 4, minor: 0, build: 6 };
 
 // core stuff, always needed
 exports.deferred = require('./lib/deferred.js');
@@ -1831,16 +1831,16 @@ exports.DjsDeferred = DjsDeferred;}, "odata" : function(exports, module, require
  /** @module odata */
 
 // Imports
-var odataUtils    = exports.utils     = require('./odata/odatautils.js');
-var odataHandler  = exports.handler   = require('./odata/handler.js');
-var odataMetadata = exports.metadata  = require('./odata/metadata.js');
-var odataNet      = exports.net       = require('./odata/net.js');
-var odataJson     = exports.json      = require('./odata/json.js');
-                    exports.batch     = require('./odata/batch.js');
-                    
-
-
 var utils = require('./utils.js');
+var odataUtils      = exports.utils      = require('./odata/odatautils.js');
+var odataHandler    = exports.handler    = require('./odata/handler.js');
+var odataMetadata   = exports.metadata   = require('./odata/metadata.js');
+var odataNetServer  = exports.netServer  = require('./odata/net.js');
+var odataNetBrowser = exports.netBrowser = require('./odata/net-browser.js');
+var odataNet        = exports.net        = utils.inBrowser() ? odataNetBrowser : odataNetServer;
+var odataJson       = exports.json       = require('./odata/json.js');
+                      exports.batch      = require('./odata/batch.js');
+                    
 var assigned = utils.assigned;
 
 var defined = utils.defined;
@@ -4365,8 +4365,12 @@ exports.defaultHttpClient = {
                     xhr.timeout = request.timeoutMS;
                     xhr.ontimeout = handleTimeout;
                 }
-
-                xhr.send(request.body);
+                if (typeof request.body === 'undefined') {
+                    xhr.send();
+                }
+                else {
+                    xhr.send(request.body);
+                }
             } else {
                 if (!canUseJSONP(request)) {
                     throw { message: "Request is not local and cannot be done through JSONP." };
