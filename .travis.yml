@@ -1,0 +1,34 @@
+os:
+  - linux
+  - osx
+
+language: node_js
+
+addons:
+  apt:
+    packages: default-jre
+  homebrew:
+    packages: java
+
+#before_install: 
+#  - sudo apt-get install default-jre
+
+node_js:
+  - 'node'
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+notifications:
+  email: false
+
+script:
+  - npm install --g download-cli
+  - cd grunt-config/custom-tasks/rat
+  - download "https://archive.apache.org/dist/creadur/apache-rat-0.12/apache-rat-0.12-bin.zip" --extract --out "_extern-tools"
+  - npm install
+  - cd ../../../
+  - npm install
+  - npx grunt release
